@@ -1,3 +1,4 @@
+// 1. opzetten van de webserver
 // Importeer het npm pakket express uit de node_modules map
 import express from 'express'
 
@@ -22,18 +23,25 @@ app.set('views', './views')
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
 app.use(express.static('public'))
 
+//2 HTTP request en responses afhandelen
+//stap 1
+
 // Maak een GET route voor de index
 app.get('/', function (request, response) {
+  // stap 2
   // Haal alle personen uit de WHOIS API op
   fetchJson(apiUrl + '/person').then((apiData) => {
     // apiData bevat gegevens van alle personen uit alle squads
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
 
+    // stap 3
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
+    // stap 4
+    // Html pagina wordt gerenderd van json data
     response.render('index', {persons: apiData.data, squads: squadData.data})
   })
 })
-
+//
 // Maak een POST route voor de index
 app.post('/', function (request, response) {
   // Er is nog geen afhandeling van POST, redirect naar GET op /
@@ -42,12 +50,15 @@ app.post('/', function (request, response) {
 
 // Maak een GET route voor een detailpagina met een request parameter id
 app.get('/person/:id', function (request, response) {
+
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
   fetchJson(apiUrl + '/person/' + request.params.id).then((apiData) => {
     // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
     response.render('person', {person: apiData.data, squads: squadData.data})
   })
 })
+
+// 3. opzetten van de webserver
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
@@ -57,3 +68,7 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+//filter={"name:like":"%${search}%"}&sort=-name}
+//filter={"name:like":"%${search}%"}&sort=-surname}
+

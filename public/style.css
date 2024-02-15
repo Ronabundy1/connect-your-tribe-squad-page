@@ -1,0 +1,114 @@
+
+:root {
+    --green: #A2CCB6;
+    --grey: #808080;
+    --peach: #EE786E;
+    --yellow: #F7C548;
+    --white: #fff;
+    --black: #000;
+  }
+
+body
+{
+    font-family: 'pp formula', sans-serif;
+    background:var(--grey) ;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--peach);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'pp formula', sans-serif;
+    color: var(--peach);
+}
+
+.container {
+    padding: 10px;
+}
+
+.squad-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.member {
+    width: 100%;
+    max-width: 280px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    background: linear-gradient(to bottom right, var(--green), var(--yellow));
+}
+
+.member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.member p {
+    margin: 5px 0;
+}
+
+.member .icon {
+    color: #007bff;
+    margin-right: 5px;
+}
+
+.filters {
+margin-top: 20px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap; /* Allow filters to wrap to the next line on smaller screens */
+}
+
+.filters label {
+font-weight: bold;
+margin-right: 10px;
+flex: 1; /* Equal flex distribution for labels */
+}
+
+.filters input {
+padding: 5px;
+border-radius: 5px;
+border: 1px solid #ccc;
+transition: border-color 0.3s ease;
+flex: 2; /* Take up more space than labels */
+}
+
+.filters input:focus {
+border-color: #007bff;
+outline: none;
+}
+
+.button{
+  
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    
+}
+
+@media only screen and (max-width: 576px) {
+    
+}
+
+@media only screen and (max-width: 480px) {
+   
+}
+
+
+
+
+
