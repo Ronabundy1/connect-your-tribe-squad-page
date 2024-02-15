@@ -30,7 +30,7 @@ app.use(express.static('public'))
 app.get('/', function (request, response) {
   // stap 2
   // Haal alle personen uit de WHOIS API op
-  fetchJson(apiUrl + '/person').then((apiData) => {
+  fetchJson('https://fdnd.directus.app/items/person').then((apiData) => {
     // apiData bevat gegevens van alle personen uit alle squads
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
 

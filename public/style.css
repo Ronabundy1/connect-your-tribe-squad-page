@@ -1,34 +1,35 @@
-
+/* Variabelen voor kleurenpalet */
 :root {
-    --green: #A2CCB6;
-    --grey: #808080;
-    --peach: #EE786E;
-    --yellow: #F7C548;
-    --white: #fff;
-    --black: #000;
-  }
+    --groen: #A2CCB6;
+    --grijs: #808080;
+    --perzik: #EE786E;
+    --geel: #F7C548;
+    --wit: #fff;
+    --zwart: #000;
+}
 
-body
-{
+/* Basisstijlen */
+body {
     font-family: 'pp formula', sans-serif;
-    background:var(--grey) ;
+    background: var(--grijs);
     font-size: 16px;
     line-height: 1.6;
-    color: var(--peach);
+    color: var(--perzik);
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6
-{
+h1, h2, h3, h4, h5, h6 {
     font-family: 'pp formula', sans-serif;
-    color: var(--peach);
+    color: var(--perzik);
 }
 
+/* Stijlen voor container */
 .container {
     padding: 10px;
 }
 
+/* Rooster voor squadleden */
 .squad-members {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -36,79 +37,79 @@ h1, h2, h3, h4, h5, h6
     justify-content: center;
 }
 
+/* Stijlen voor ledenkaart */
 .member {
     width: 100%;
     max-width: 280px;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.3s ease;
-    background: linear-gradient(to bottom right, var(--green), var(--yellow));
+    background: linear-gradient(to bottom right, var(--grijs), var(--zwart));
+    border: #007bff;
 }
 
 .member img {
-    width: 100px;
-    height: 100px;
+    width: 100%; /* Zorgt voor responsieve afbeeldingen */
+    height: auto;
     border-radius: 50%;
     margin-bottom: 10px;
 }
 
 .member p {
-    margin: 5px 0;
+    margin: 5px;
 }
 
 .member .icon {
-    color: #007bff;
     margin-right: 5px;
 }
 
+/* Filters sectie */
 .filters {
-margin-top: 20px;
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap; /* Allow filters to wrap to the next line on smaller screens */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: flex-start; /* Align items to start of column */
 }
 
 .filters label {
-font-weight: bold;
-margin-right: 10px;
-flex: 1; /* Equal flex distribution for labels */
+    font-weight: bold;
+    margin-bottom: 10px; /* Add margin between labels */
 }
 
 .filters input {
-padding: 5px;
-border-radius: 5px;
-border: 1px solid #ccc;
-transition: border-color 0.3s ease;
-flex: 2; /* Take up more space than labels */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Set input width to 100% */
+    margin-bottom: 10px; /* Add margin between inputs */
+    box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
 .filters input:focus {
-border-color: #007bff;
-outline: none;
-}
-
-.button{
-  
+    border-color: #007bff;
+    outline: none;
 }
 
 
+/* Media query voor desktopapparaten */
+@media only screen and (min-width: 768px) {
+    .filters {
+        display: flex; /* Zet de container naar flexbox */
+        flex-direction: row; /* Schik items horizontaal */
+        align-items: center; /* Centreer items verticaal */
+    }
 
-@media only screen and (max-width: 768px) {
+    .filters label {
+        margin-right: 10px; /* Voeg marge toe tussen labels en invoervelden */
+    }
+
+    .filters input {
+        width: auto; /* Laat invoervelden uitbreiden op basis van inhoud */
+    }
+}
+
     
-}
-
-@media only screen and (max-width: 576px) {
-    
-}
-
-@media only screen and (max-width: 480px) {
-   
-}
-
-
-
-
-

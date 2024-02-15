@@ -3,70 +3,70 @@
 <div class="container">
     <h1>Squad Members</h1>
     
-    <!-- Filters section -->
-    <div class="filters">
-        <form action="/" method="get">
-            <label for="filterInput">Search:</label>
-            <input type="text" name="search" id="filterInput" placeholder="Search for members...">
+    <!-- Filters sectie/formulier -->
+<div class="filters">
+    <form action="/" method="get">
+    <!-- Zoekveld -->
+    <label for="filterInput">Zoeken:</label>
+    <input type="text" name="search" id="filterInput" placeholder="Zoek naar leden...">
             
-            <label for="birthdayFilter">Birthday:</label>
-            <input type="text" name="birthday" id="birthdayFilter" placeholder="YYYY-MM-DD">
+    <!-- Verjaardagsfilter -->
+    <label for="birthdayFilter">Verjaardag:</label>
+    <input type="text" name="birthday" id="birthdayFilter" placeholder="YYYY-MM-DD">
             
-            <label for="residenceFilter">Residence:</label>
-            <input type="text" name="residence" id="residenceFilter" placeholder="Enter homeplaats">
+    <!-- Verblijfplaatsfilter -->
+    <label for="residenceFilter">Verblijfplaats:</label>
+    <input type="text" name="residence" id="residenceFilter" placeholder="Voer verblijfplaats in">
 
-            <label for="idFilter">ID:</label>
-            <input type="text" name="id" id="idFilter" placeholder="Enter ID">
+    <!-- ID-filter -->
+    <label for="idFilter">ID:</label>
+    <input type="text" name="id" id="idFilter" placeholder="Voer ID in">
 
-            <button type="submit">Apply Filters</button>
-        </form>
+    <!-- Bijnaamfilter -->
+    <label for="nicknameFilter">Bijnaam:</label>
+    <input type="text" name="nickname" id="nicknameFilter" placeholder="Voer bijnaam in">
+
+    <!-- Knop Filters Toepassen -->
+    <button type="submit">Filters Toepassen</button>
+    </form>
     </div>
     
-    <!-- Homepage section -->
+    <!-- Homepage sectie -->
     <div class="homepage">
-        <h2>Welcome to our squad page!</h2>
-        <p>Explore our squad members below.</p>
+        <h2>Welkom op onze squad-pagina!</h2>
+        <p>Ontdek hieronder onze squad-leden.</p>
     </div>
-    <!-- verder moet ik custom moet toegevoegt worden van iedere team of squad: Birthday, residence-->
-    <!-- Squad members section -->
+    
+    <!-- Squad-leden sectie -->  
     <div class="squad-members" id="squadMembers">
         <% persons.forEach(function(person) { %>
             <div class="member">
-                <img src="<%= person.image %>" alt="<%= person.name %>">
-                <p>Name: <%= person.name %></p>
+                <!-- Leden-avatar -->
+                <img src="<%= person.avatar %>" alt="<%= person.name %>">
+                <!-- Leden-naam -->
+                <p>Naam: <%= person.name %></p>
+                <!-- Leden-verjaardag -->
                 <p><i class="fas fa-birthday-cake icon"></i><%= person.birthday %></p>
+                <!-- Leden-verblijfplaats -->
                 <p><i class="fas fa-home icon"></i><%= person.residence %></p>
-                <% if (person.id) { %>
-                    <p><i class="fas fa-paint-brush icon"></i>ID: <%= person.id %></p>
-                <% } else { %>
-                    <p><i class="fas fa-paint-brush icon"></i> geen id mogelijk</p>
-                <% } %>
+                <!-- Leden-ID -->
+                <p><i class="fas fa-paint-brush icon"></i> <%= person.id %></p>
+                <!-- Leden-bijnaam -->
+                <p><%= person.nickname %></p>
+                <!-- Leden-GitHub-handle -->
+                <!-- Maak GitHub-handle een klikbare link -->
+                <p><a href="https://github.com/<%= person.github_handle %>"><%= person.github_handle %></a></p>
+                <!-- Voeg andere gegevensvelden toe indien nodig -->
             </div>
         <% }); %>
     </div>
-    
-    <!-- Footer section -->
-    <div class="footer">
-        <p>&copy; 2024 Squad Page. All rights reserved.</p>
-    </div>
-</div>
 
-
-
-
-
-
- 
+<%- include('./partials/foot') %>
 
 <!-- Display filtered data -->
 <!--<ul>
     <% persons.forEach(person => { %>
         <li><%= person.name %></li>
     <% }); %>
-</ul>-->
-
-          
-
-             
-<%- include('./partials/foot') %>
+</ul>-->      
 
